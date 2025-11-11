@@ -1,29 +1,31 @@
-* {
-  font-family: "Cabin", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
+body {
+  font-family: 'Cabin', sans-serif;
+  font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
 }
 
 
-
-body {
+html body {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
 /*------------------------ CABEÇALHO ---------------------------------*/
 header {
+  margin-left: -35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
   height: 80px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #140902;
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+  top: 0;
 }
 
 .menu ul {
@@ -68,6 +70,7 @@ header {
 }
 
 .menu li:hover {
+  font-size: 25px;
   transition: 0.3s;
   color: #ff9e3d;
   border-bottom: solid 2px #ff9e3d;
@@ -81,18 +84,13 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 780px;
-  /* altura da área de busca */
-
+  height: 100vh;
   background-image: url('https://www.10wallpaper.com/wallpaper/2560x1440/1802/Golden_metal_gear_closeup_4K_2560x1440.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   background-color: rgba(0, 0, 0, 0.6);
-  /* capa preta transparente */
   background-blend-mode: darken;
-  /* OU multiply, overlay, etc */
 }
 
 
@@ -100,9 +98,7 @@ header {
   display: flex;
   align-items: center;
   background-color: #fff;
-  /* fundo branco do campo */
   border-radius: 50px;
-  /* borda arredondada */
   padding: 10px 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -110,17 +106,14 @@ header {
 .search-bar input {
   border: none;
   outline: none;
-  /* remove a borda azul ao clicar */
   padding: 10px 15px;
   font-size: 18px;
   flex: 1;
-  /* ocupa todo o espaço disponível */
   border-radius: 50px;
 }
 
 .search-bar button {
   background-color: #ff6c1f;
-  /* sua cor laranja */
   border: none;
   color: #fff;
   padding: 10px 25px;
@@ -132,5 +125,44 @@ header {
 
 .search-bar button:hover {
   background-color: #e65a00;
-  /* laranja mais escuro no hover */
+}
+
+/*------------------------------------------------------MOBILE------------------------------------------------------------*/
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  .menu ul {
+  
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+  }
+
+  .menu ul li {
+    margin: 10px 10px;
+    font-size: 18px;
+  }
+
+  .autobras {
+    font-size: 20px;
+  }
+
+  .search-bar {
+    width: 90%;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .search-bar input {
+    margin-bottom: 10px;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
 }
