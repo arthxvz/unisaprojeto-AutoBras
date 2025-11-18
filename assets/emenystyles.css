@@ -127,6 +127,24 @@ header {
   background-color: #e65a00;
 }
 
+.resultado-box {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 17px;
+  background-color: rgb(43, 42, 42);
+  color: white;
+  margin: 0;
+  padding: 2px;
+}
+.resultado-box:hover {
+  font-size: 17px;
+  transition: 0.5s;
+  color: #e97400;
+  border-bottom: solid 2px #ff9e3d;
+  background-color: #fff;
+}
 /*------------------------------------------------------MOBILE------------------------------------------------------------*/
 
 @media (max-width: 768px) {
