@@ -78,21 +78,17 @@ header {
 }
 
 /*------------------------ ÁREA DE BUSCA ---------------------------------*/
-
-
 .search-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-image: url('https://www.10wallpaper.com/wallpaper/2560x1440/1802/Golden_metal_gear_closeup_4K_2560x1440.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, 0.6);
-  background-blend-mode: darken;
+  min-height: 100vh; /* substitui height por min-height */
+  padding: 20px; /* evita corte em telas pequenas */
+  
+  /* Fundo com imagem + overlay escuro */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url('https://www.10wallpaper.com/wallpaper/2560x1440/1802/Golden_metal_gear_closeup_4K_2560x1440.jpg') center/cover no-repeat;
 }
-
 
 .search-bar {
   display: flex;
@@ -101,6 +97,9 @@ header {
   border-radius: 50px;
   padding: 10px 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 600px; /* limita a barra em telas grandes */
+  flex-wrap: wrap; /* permite quebra do input/button no mobile */
 }
 
 .search-bar input {
@@ -108,8 +107,9 @@ header {
   outline: none;
   padding: 10px 15px;
   font-size: 18px;
-  flex: 1;
+  flex: 1 1 200px; /* cresce e encolhe conforme a tela */
   border-radius: 50px;
+  margin-bottom: 0;
 }
 
 .search-bar button {
@@ -121,6 +121,7 @@ header {
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-left: 10px;
 }
 
 .search-bar button:hover {
@@ -128,59 +129,45 @@ header {
 }
 
 .resultado-box {
-  margin: 5px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 17px;
   background-color: rgb(43, 42, 42);
   color: white;
-  margin: 0;
-  padding: 2px;
-}
-.resultado-box:hover {
-  font-size: 17px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
   transition: 0.5s;
+}
+
+.resultado-box:hover {
   color: #e97400;
   border-bottom: solid 2px #ff9e3d;
   background-color: #fff;
 }
-/*------------------------------------------------------MOBILE------------------------------------------------------------*/
 
+/*------------------------ RESPONSIVIDADE -------------------------------*/
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 20px;
-  }
-
-  .menu ul {
-  
-    flex-direction: row;
-    align-items: center;
-    margin: 0;
-  }
-
-  .menu ul li {
-    margin: 10px 10px;
-    font-size: 18px;
-  }
-
-  .autobras {
-    font-size: 20px;
-  }
-
   .search-bar {
-    width: 90%;
     flex-direction: column;
-    padding: 10px;
+    padding: 15px;
   }
 
   .search-bar input {
     margin-bottom: 10px;
+    width: 100%;
   }
 
   .search-bar button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .resultado-box {
+    font-size: 16px;
     width: 100%;
   }
 }
