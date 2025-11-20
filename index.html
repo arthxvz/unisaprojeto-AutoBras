@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Autobras</title>
-<link rel="stylesheet" href="assets/emenystyles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/emenystyles.css">
+
 </head>
 <body>
-
-<header>
-  <div class="logo">
-    <h1 class="autobras">Grupo <span>Autobras</span></h1>
-    <img src="assets/images/engrenagens.png" alt="Logo da Autobras">
+   <header>
+     <div class="logo">
+      <h1 class="autobras"> Grupo </h1>
+        <img src="assets/images/engrenagens.png" alt="logo">
+      <h1 class="autobras"> Autobras</h1>
+     </div>
+     <div class="menu">
+       <ul>
+        <li>
+            ENDEREÇOS
+        </li>
+        <li>
+            INSUMOS
+        </li>
+        <li>
+            FLUXOGRAMA
+        </li>
+       </ul>
+     </div>  
+   </header> 
+  <section class="search-section">
+  <div class="container">
+  <div class="thumb">
+    <img src="assets/images/logo.png" alt="logo">
   </div>
-  <nav class="menu">
-    <ul>
-      <li><a href="#">Endereços</a></li>
-      <li><a href="#">Insumos</a></li>
-      <li><a href="#">Fluxograma</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section class="search-section">
-  <form class="search-bar" id="formBusca">
-    <label for="codigo" class="sr-only">Código do produto</label>
-    <input id="codigo" type="text" placeholder="Digite o código do produto..." required>
-    <button type="submit">Buscar</button>
-  </form>
+    <form class="search-bar" id="formBusca">
+      <input id="codigo" type="text" placeholder="Digite o código do produto..." required>
+      <button type="submit">Buscar</button>
+    </form>
+  </div>
+  
 </section>
-
+<div id="resultado" class="resultado-box"></div>
+<script src="script.js"></script>
+</body>
+</html>
