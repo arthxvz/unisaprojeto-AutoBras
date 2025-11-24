@@ -1,14 +1,14 @@
-body {
-  font-family: 'Cabin', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-html body {
-  height: 100%;
+/* --------------------------- RESET E BASE --------------------------- */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Cabin', sans-serif;
+  background-color: #000;
 }
 
 :root {
@@ -16,181 +16,182 @@ html body {
   --hover-color: #ff9e3d;
   --button-color: #ff6c1f;
   --button-hover: #e65a00;
-  --background-dark: rgba(0, 0, 0, 0.6);
+  --background-dark: rgba(0, 0, 0, 0.65);
 }
 
-/*------------------------ CABEÇALHO ---------------------------------*/
+/* --------------------------- CABEÇALHO --------------------------- */
 header {
-  margin-left: -35px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 40px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
-  height: 80px;
-  background-color: rgba(0, 0, 0, 0);
-  box-shadow: none;
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  position: fixed;
-  top: 0;
+
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+
+  z-index: 1000;
 }
 
-.menu ul {
-  display: flex;
-  list-style: none;
-  gap: 15px;
-}
-
-.menu ul li {
-  margin: 15px;
-  text-transform: uppercase;
-  font-size: 23px;
-  font-weight: bold;
-  color: #f7962f;
-}
-
+/* Logo */
 .logo {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo img {
-
-  margin: 12px;
   width: 45px;
-  height: auto;
 }
 
 .autobras {
-  padding: 0 10px;
-  text-transform: uppercase;
-  font-size: 25px;
+  font-size: 26px;
   font-weight: bold;
-  color: #f7962f;
+  text-transform: uppercase;
+  color: var(--primary-color);
 }
 
-.autobras:hover,
-.menu li:hover {
+/* Menu */
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu ul li {
+  color: var(--primary-color);
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu ul li:hover {
   color: var(--hover-color);
-  border-bottom: 2px solid var(--hover-color);
-  margin-bottom: 5px;
-  transition: 0.3s;
+  transform: translateY(-2px);
 }
 
-.menu li:hover {
-  font-size: 25px;
-  transition: 0.3s;
-  color: #ff9e3d;
-  border-bottom: solid 2px #ff9e3d;
-  margin-bottom: 5px;
-}
-
-/*------------------------ ÁREA DE BUSCA ---------------------------------*/
+/* --------------------------- SESSÃO DE BUSCA --------------------------- */
 .search-section {
+  min-height: 100vh;
+  padding: 120px 20px 40px;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  /* substitui height por min-height */
-  padding: 20px;
-  /* evita corte em telas pequenas */
 
-  /* Fundo com imagem + overlay escuro */
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('https://www.10wallpaper.com/wallpaper/2560x1440/1802/Golden_metal_gear_closeup_4K_2560x1440.jpg') center/cover no-repeat;
+  background: 
+    linear-gradient(var(--background-dark), var(--background-dark)),
+    url('https://www.10wallpaper.com/wallpaper/2560x1440/1802/Golden_metal_gear_closeup_4K_2560x1440.jpg')
+    center/cover no-repeat;
 }
 
+/* Barra */
 .search-bar {
+  width: 100%;
+  max-width: 550px;
+
   display: flex;
   align-items: center;
-  background-color: #fff;
-  border-radius: 50px;
-  padding: 10px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  max-width: 600px;
-  /* limita a barra em telas grandes */
+  gap: 12px;
   flex-wrap: wrap;
-  /* permite quebra do input/button no mobile */
+
+  padding: 15px 20px;
+  background: #fff;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .search-bar input {
+  flex: 1;
+  padding: 12px 16px;
   border: none;
-  outline: none;
-  padding: 10px 15px;
-  font-size: 18px;
-  flex: 1 1 200px;
-  /* cresce e encolhe conforme a tela */
-  border-radius: 50px;
-  margin-bottom: 0;
+  border-radius: 40px;
+  font-size: 16px;
+}
+
+.search-bar input:focus {
+  outline: 2px solid var(--primary-color);
 }
 
 .search-bar button {
-  background-color: #ff6c1f;
+  padding: 12px 25px;
+  background: var(--button-color);
+  color: white;
   border: none;
-  color: #fff;
-  padding: 10px 25px;
-  font-size: 18px;
-  border-radius: 50px;
+  border-radius: 40px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 10px;
+  transition: 0.3s;
 }
 
 .search-bar button:hover {
-  background-color: #e65a00;
+  background: var(--button-hover);
 }
 
+/* Resultado */
 .resultado-box {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 17px;
-  background-color: rgb(43, 42, 42);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 600px;
-  transition: 0.5s;
+  width: 100%;
+  max-width: 550px;
+
+  margin-top: 18px;
+  padding: 12px 16px;
+
+  background: #2b2a2a;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+
+  transition: 0.3s ease;
 }
 
-.resultado-box:hover {
-  color: #e97400;
-  border-bottom: solid 2px #ff9e3d;
-  background-color: #fff;
+/* --------------------------- TABLETS --------------------------- */
+@media (max-width: 1024px) {
+  header {
+    padding: 0 25px;
+  }
+
+  .menu ul li {
+    font-size: 20px;
+  }
+
+  .autobras {
+    font-size: 22px;
+  }
+
+  .search-bar {
+    max-width: 500px;
+  }
 }
 
-/*------------------------ RESPONSIVIDADE -------------------------------*/
-
-
+/* --------------------------- MOBILE - 768px --------------------------- */
 @media (max-width: 768px) {
+
   header {
     flex-direction: column;
-    align-items: center;
     height: auto;
-    padding: 10px 15px;
+    padding: 12px 20px;
+    gap: 8px;
   }
 
   .menu ul {
     flex-direction: column;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .menu ul li {
-    font-size: 18px;
+    gap: 10px;
+    padding-bottom: 10px;
   }
 
   .search-section {
-    padding: 15px;
+    padding-top: 160px;
   }
 
   .search-bar {
     flex-direction: column;
-    padding: 15px;
+    border-radius: 20px;
+    gap: 10px;
   }
 
   .search-bar input,
@@ -198,26 +199,30 @@ header {
     width: 100%;
   }
 
-  .resultado-box {
-    width: 100%;
-    font-size: 15px;
-    padding: 8px 12px;
+  .logo img {
+    width: 38px;
   }
-}
 
-@media (max-width: 480px) {
   .autobras {
     font-size: 20px;
   }
+}
 
+/* --------------------------- MOBILE PEQUENO - 480px --------------------------- */
+@media (max-width: 480px) {
   .menu ul li {
-    font-size: 16px;
+    font-size: 17px;
   }
 
-  .search-bar input {
-    font-size: 14px;
+  .logo img {
+    width: 32px;
   }
 
+  .autobras {
+    font-size: 18px;
+  }
+
+  .search-bar input,
   .search-bar button {
     font-size: 14px;
   }
