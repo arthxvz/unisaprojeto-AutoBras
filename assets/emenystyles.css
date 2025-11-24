@@ -26,18 +26,14 @@ header {
   width: 100%;
   height: 80px;
   padding: 0 40px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   background: rgba(0,0,0,0.4);
   backdrop-filter: blur(6px);
-
   z-index: 1000;
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -55,7 +51,6 @@ header {
   color: var(--primary-color);
 }
 
-/* Menu */
 .menu ul {
   list-style: none;
   display: flex;
@@ -79,11 +74,9 @@ header {
 .search-section {
   min-height: 100vh;
   padding: 120px 20px 40px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   background: 
     linear-gradient(var(--background-dark), var(--background-dark)),
     url('https://www.10wallpaper.com/wallpaper/2560x1440/1802/Golden_metal_gear_closeup_4K_2560x1440.jpg')
@@ -94,20 +87,18 @@ header {
 .search-bar {
   width: 100%;
   max-width: 550px;
-
   display: flex;
-  align-items: center;
+  flex-direction: column; /* agora suporta o resultado */
   gap: 12px;
-  flex-wrap: wrap;
 
-  padding: 15px 20px;
+  padding: 20px;
   background: #fff;
-  border-radius: 50px;
+  border-radius: 30px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .search-bar input {
-  flex: 1;
+  width: 100%;
   padding: 12px 16px;
   border: none;
   border-radius: 40px;
@@ -119,6 +110,7 @@ header {
 }
 
 .search-bar button {
+  width: 100%;
   padding: 12px 25px;
   background: var(--button-color);
   color: white;
@@ -133,20 +125,26 @@ header {
   background: var(--button-hover);
 }
 
-/* Resultado */
+/* ---------------- RESULTADO DENTRO DA BARRA ---------------- */
 .resultado-box {
   width: 100%;
-  max-width: 550px;
-
-  margin-top: 18px;
-  padding: 12px 16px;
-
   background: #2b2a2a;
   color: #fff;
-  border-radius: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 15px;
   text-align: center;
+  display: none; /* começa escondido */
+  animation: fade 0.3s ease;
+}
 
-  transition: 0.3s ease;
+.resultado-box.show {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* --------------------------- TABLETS --------------------------- */
@@ -189,14 +187,9 @@ header {
   }
 
   .search-bar {
-    flex-direction: column;
+    padding: 15px;
     border-radius: 20px;
     gap: 10px;
-  }
-
-  .search-bar input,
-  .search-bar button {
-    width: 100%;
   }
 
   .logo img {
@@ -229,5 +222,9 @@ header {
 
   .resultado-box {
     font-size: 14px;
+  }
+
+  .thumb img {
+    width: 100%;
   }
 }
